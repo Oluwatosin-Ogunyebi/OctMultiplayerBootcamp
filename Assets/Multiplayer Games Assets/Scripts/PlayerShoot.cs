@@ -33,7 +33,7 @@ public class PlayerShoot : NetworkBehaviour
 
         bulletObject.GetComponent<NetworkObject>().Spawn();
 
-        bullet.GetComponent<Rigidbody>().AddForce(tankRb.velocity + bulletObject.transform.forward * shootSpeed, ForceMode.VelocityChange);
+        bulletObject.GetComponent<Rigidbody>().AddForce(tankRb.velocity + bulletObject.transform.forward * shootSpeed, ForceMode.VelocityChange);
 
         Destroy(bulletObject, 5.0f);
     }

@@ -23,7 +23,7 @@ public class GameNetworkManager : MonoBehaviour
     {
         //transport.ConnectionData.Address = ipAddress.text.Replace(" ", "");
         NetworkManager.Singleton.StartClient();
-        joinStatusTxt.SetText($" {playerNameTxt.text} Joined as Client");
+        joinStatusTxt.SetText($" {NetworkManager.Singleton.LocalClientId} {playerNameTxt.text} Joined as Client");
     }
 
     public void JoinServer()
