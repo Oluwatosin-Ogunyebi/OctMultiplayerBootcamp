@@ -20,17 +20,25 @@ public class PlayerMovement : NetworkBehaviour
     {
         base.OnNetworkSpawn();
         tankRb = GetComponent<Rigidbody>();
-        if (!IsOwner) return;
-        gameNetworkManager = FindObjectOfType<GameNetworkManager>();
-        playerNameTxt.SetText(gameNetworkManager.GetPlayerName());
+        //gameNetworkManager = FindObjectOfType<GameNetworkManager>();
+        //playerNameTxt.SetText(gameNetworkManager.GetPlayerName());
     }
 
     // Update is called once per frame
     void Update()
     {
         if (!IsOwner) return;
-        horizontal = Input.GetAxis("Horizontal");
-        vertical = Input.GetAxis("Vertical");
+
+        if (IsServer && IsLocalPlayer)
+        {
+            horizontal = Input.GetAxis("Horizontal");
+            vertical = Input.GetAxis("Vertical");
+        }else if (IsClient && IsLocalPlayer) {
+            MovementServerRPC(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+        
+        }
+
+
 
         playerNameTxt.transform.parent.LookAt(Camera.main.transform.position);
         playerNameTxt.transform.parent.RotateAround(transform.position, transform.up, 0f);
@@ -39,8 +47,14 @@ public class PlayerMovement : NetworkBehaviour
 
     private void FixedUpdate()
     {
-        if (!IsOwner) return;
         tankRb.velocity = tankRb.transform.forward * tankSpeed * vertical;
         tankRb.rotation =  Quaternion.Euler(transform.eulerAngles + transform.up * horizontal * tankTurnSpeed);
+    }
+
+    [ServerRpc]
+    public void MovementServerRPC(float horizontal, float vertical)
+    {
+        this.horizontal = horizontal;
+        this.vertical = vertical;
     }
 }

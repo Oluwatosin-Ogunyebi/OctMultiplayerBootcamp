@@ -4799,6 +4799,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1343437123}
   - component: {fileID: 1343437124}
+  - component: {fileID: 1343437125}
+  - component: {fileID: 1343437126}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Untagged
@@ -4837,6 +4839,44 @@ MonoBehaviour:
   ipAddress: {fileID: 1667105855}
   transport: {fileID: 385977664}
   playerNameTxt: {fileID: 117489017}
+--- !u!114 &1343437125
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1343437122}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 3211609024
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  SpawnWithObservers: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
+--- !u!114 &1343437126
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1343437122}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b45d2d4dd2e0b5546a6b9cc857262024, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startPositions:
+  - {fileID: 2068286172}
+  - {fileID: 1290542150}
+  - {fileID: 1315362466}
+  - {fileID: 60067343}
+  playerNameField: {fileID: 117489017}
 --- !u!1 &1433273438
 GameObject:
   m_ObjectHideFlags: 0
