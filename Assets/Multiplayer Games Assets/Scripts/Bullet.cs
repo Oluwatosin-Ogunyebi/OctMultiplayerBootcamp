@@ -17,6 +17,9 @@ public class Bullet : NetworkBehaviour
             {
                 other.GetDamage();
                 Debug.Log(clientID + " " + other.OwnerClientId);
+
+                //Update Score
+                GameManager.instance.AddScore(clientID);
             }
 
             Destroy(gameObject);
