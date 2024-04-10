@@ -1887,7 +1887,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6960e84d07fb87f47956e7a81d71c4e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ProtocolType: 0
+  m_ProtocolType: 1
   m_MaxPacketQueueSize: 128
   m_MaxPayloadSize: 6144
   m_HeartbeatTimeoutMS: 500
@@ -4839,6 +4839,9 @@ MonoBehaviour:
   ipAddress: {fileID: 1667105855}
   transport: {fileID: 385977664}
   playerNameTxt: {fileID: 117489017}
+  playerIDText: {fileID: 1021700246}
+  joinCodeTxt: {fileID: 1667105855}
+  maxConnections: 8
 --- !u!114 &1343437125
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4877,6 +4880,11 @@ MonoBehaviour:
   - {fileID: 1315362466}
   - {fileID: 60067343}
   playerNameField: {fileID: 117489017}
+  scoreUITxt: {fileID: 546531359}
+  endGameScreen: {fileID: 1035143983}
+  endGameMessage: {fileID: 1462356574}
+  state:
+    m_InternalValue: 0
 --- !u!1 &1433273438
 GameObject:
   m_ObjectHideFlags: 0
@@ -7262,7 +7270,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1343437126}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
         m_MethodName: StartGame
         m_Mode: 1
